@@ -15,9 +15,9 @@ def create_text_file(name):
         print('Файл с таким именем уже существует')
         return False
     with open(name, 'w', encoding='utf-8') as d:
-        strings = [get_random_string() for _ in range(LINES_COUNT)]
         numbers = [random.randint(0, 100) for _ in range(LINES_COUNT)]
-        d.writelines(['{} {}\n'.format(number, text) for number, text in zip(strings, numbers)])
+        strings = [get_random_string() for _ in range(LINES_COUNT)]
+        d.writelines(['{} {}\n'.format(number, text) for number, text in zip(numbers, strings)])
         return d
 
 
@@ -27,6 +27,6 @@ def print_text_file(desc):
             print(line)
 
 
-descriptor = create_text_file('newfile.txt')
+descriptor = create_text_file('newfile1.txt')
 if descriptor:
     print_text_file(descriptor)
